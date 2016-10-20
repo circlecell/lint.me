@@ -1,0 +1,22 @@
+{
+  "name": "lint.me-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circlecell/lint.me.git"
+  },
+  "author": "Circlecell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/circlecell/lint.me/issues"
+  },
+  "homepage": "https://github.com/circlecell/lint.me#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.16.0"
+  }
+}
