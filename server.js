@@ -7,7 +7,7 @@ const compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler, {
     headers: { 'X-Served-By': 'Webpack' },
-    hot: true,
+    inline: true,
     filename: 'js/app.js',
     publicPath: '/',
     stats: {
@@ -15,3 +15,5 @@ app.use(webpackDevMiddleware(compiler, {
     },
     noInfo: true
 }));
+
+app.use(require('webpack-hot-middleware')(compiler));
