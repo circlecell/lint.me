@@ -7,7 +7,6 @@ const compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler, {
     headers: { 'X-Served-By': 'Webpack' },
-    inline: true,
     filename: 'js/app.js',
     publicPath: '/',
     stats: {

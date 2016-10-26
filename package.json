@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "NODE_ENV=production webpack",
-    "develop": "opn http://localhost:5003; PORT=5003 NODE_ENV=development nodemon server.js --watch packages/backend --watch webpack --watch server.js --watch package.json"
+    "develop": "opn http://localhost:5003; PORT=5003 NODE_ENV=development nodemon --harmony-async-await  server.js --watch packages/backend --watch webpack --watch server.js --watch package.json"
   },
   "repository": {
     "type": "git",
@@ -34,10 +34,12 @@
     "postcss-loader": "^1.0.0",
     "postcss-nested": "^1.0.0",
     "style-loader": "^0.13.1",
+    "text-loader": "0.0.1",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.4"
   },
   "dependencies": {
-    "codemirror": "^5.20.2"
+    "codemirror": "^5.20.2",
+    "matreshka-parse-form": "0.0.2"
   }
 }

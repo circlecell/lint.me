@@ -1,8 +1,12 @@
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser');
 const lintRouter = require('./lint');
 
+const app = express();
+
 const { PORT } = process.env;
+
+app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 
@@ -13,6 +17,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/lint', lintRouter);
+
+
 
 app.listen(PORT);
 

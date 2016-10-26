@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { isDevelopment } = require('./env');
 
 module.exports = {
     loaders: [{
@@ -6,6 +7,9 @@ module.exports = {
         loader: 'babel'
     }, {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss')
+        loader: isDevelopment ? 'style!css!postcss' : ExtractTextPlugin.extract('style', 'css!postcss')
+    }, {
+        test: /\.html$/,
+        loader: 'text'
     }]
 };

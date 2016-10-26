@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/circlecell/lint.me#readme",
   "dependencies": {
-    "ejs": "^2.5.2"
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "html-validator": "^2.0.2",
+    "stylelint": "^7.5.0",
+    "stylelint-config-standard": "^14.0.0"
   }
 }

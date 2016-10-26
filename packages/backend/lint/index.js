@@ -1,7 +1,9 @@
 const { Router } = require('express');
 const lintRouter = Router();
-const js = require('./js');
+const css = require('./css');
+const html = require('./html');
 
-lintRouter.get('/js', js);
+lintRouter.post('/css', css);
+lintRouter.post('/html', html);
 
-module.exports  = lintRouter;
+module.exports = lintRouter;
