@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
                 text
             }))
         });
-    } catch(e) {
+    } catch (e) {
         res.status(500).json({
             warnings: [{ text: e.toString() }]
         });

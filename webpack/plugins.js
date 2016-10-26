@@ -7,7 +7,7 @@ const plugins = [
     new webpack.EnvironmentPlugin(['NODE_ENV'])
 ];
 
-if(isDevelopment) {
+if (isDevelopment) {
     plugins.push(
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin()

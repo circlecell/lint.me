@@ -1,7 +1,8 @@
-const config = require('./webpack.config');
-const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
-const app = require('./packages/backend')
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const app = require('./packages/backend');
+const config = require('./webpack.config');
 
 const compiler = webpack(config);
 
@@ -15,4 +16,4 @@ app.use(webpackDevMiddleware(compiler, {
     noInfo: true
 }));
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(webpackHotMiddleware(compiler));

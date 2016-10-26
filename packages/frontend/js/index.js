@@ -17,7 +17,7 @@ class Application {
                 }
             })
             .on({
-                'click::(.submit)': evt => this.lint()
+                'click::(.submit)': () => this.lint()
             });
 
         this.initialize();
@@ -25,8 +25,7 @@ class Application {
 
     async initialize() {
         const {
-            contentType,
-            lint,
+            // contentType,
             settingsForm,
             settings
         } = await linterPromise;
@@ -50,7 +49,7 @@ class Application {
             ).json();
 
             console.log(resp);
-        } catch(e) {
+        } catch (e) {
             console.error(e);
         }
     }

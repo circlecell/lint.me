@@ -13,11 +13,10 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', {  });
+    res.render('index.ejs', { });
 });
 
 app.use('/lint', lintRouter);
-
 
 
 app.listen(PORT);

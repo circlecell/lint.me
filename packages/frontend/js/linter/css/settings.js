@@ -5,6 +5,6 @@ const settings = {
 };
 
 // number of spaces or string (e. g. tab)
-mediate(settings, 'indentation', ind => isNaN(ind) ? ind : +ind);
+mediate(settings, 'indentation', ind => (isNaN(ind) ? ind : +ind));
 
 export default settings;
