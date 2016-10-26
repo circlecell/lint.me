@@ -20,6 +20,7 @@
     "babel-polyfill": "^6.16.0",
     "matreshka": "^2.0.0-beta.6",
     "matreshka-binder-codemirror": "0.0.4",
-    "matreshka-parse-form": "0.0.0"
+    "codemirror": "^5.20.2",
+    "matreshka-parse-form": "0.0.2"
   }
 }
