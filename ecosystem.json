@@ -1,0 +1,39 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [{
+      name      : "lint.me",
+      script    : "packages/backend",
+      node_args: '--harmony-async-await',
+      env: {
+        NODE_ENV: "production"
+      },
+      env_production : {
+        PORT: 5003
+        },
+        env_stage : {
+          PORT: 6003
+        }
+    }],
+  deploy : {
+    production : {
+      user : "deployer",
+      host : "192.241.157.86",
+      ref  : "origin/master",
+      repo : "git@github.com:circlecell/lint.me.git",
+      path : "/var/web/lint.me/production",
+      ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
+      "post-deploy" : "npm run post-deploy-remote && npm start -- --env production"
+    },
+    stage : {
+      user : "deployer",
+      host : "192.241.157.86",
+      ref  : "origin/stage",
+      repo : "git@github.com:circlecell/lint.me.git",
+      path : "/var/web/lint.me/stage",
+      "post-deploy" : "npm run post-deploy-remote && npm start -- --env stage"
+    }
+  }
+}

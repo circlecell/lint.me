@@ -1,10 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const lintRouter = require('./lint');
+const { env } = process;
 
 const app = express();
 
-const { PORT } = process.env;
+for(const varName of ['NODE_ENV', 'PORT']) {
+    if(!env[varName]) {
+        throw Error(`${varName} env variable is not given`);
+    }
+}
+
+const { PORT, NODE_ENV } = env;
 
 app.use(bodyParser.json());
 
@@ -13,11 +20,14 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', { });
+    res.render('index.ejs', {});
 });
 
 app.use('/lint', lintRouter);
 
+if(NODE_ENV === 'production') {
+    app.use(express.static(`${__dirname}/public`));
+}
 
 app.listen(PORT);
 
