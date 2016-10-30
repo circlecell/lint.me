@@ -1,7 +1,7 @@
 {
   "name": "lint.me",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "description": "lint.me source code",
   "main": "index.js",
   "scripts": {
@@ -14,11 +14,12 @@
     "upgrade": "ncu -a && lerna exec -- ncu -a && npm run install-all",
     "start": "pm2 startOrRestart ecosystem.json --watch --env production",
     "post-deploy-remote": "npm run install-all && npm run bundle",
-    "deploy": "pm2 deploy ecosystem.json $TRAVIS_BRANCH"
+    "deploy": "pm2 deploy ecosystem.json $TRAVIS_BRANCH",
+    "semantic-release": "semantic-release pre && npm run deploy && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/circlecell/lint.me.git"
+    "url": "https://github.com/circlecell/lint.me.git"
   },
   "author": "Circlecell",
   "license": "MIT",
@@ -52,6 +53,7 @@
     "text-loader": "0.0.1",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
-    "webpack-hot-middleware": "^2.13.1"
+    "webpack-hot-middleware": "^2.13.1",
+    "semantic-release": "^4.3.5"
   }
 }
