@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
     const { code } = req.body;
 
     if (!code) {
-        return res.json({ warnings: ['Code cannot be falsy'] });
+        return res.json({ warnings: [{ text: 'Code cannot be falsy' }] });
     }
 
     validator({

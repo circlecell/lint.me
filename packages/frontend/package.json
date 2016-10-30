@@ -18,9 +18,10 @@
   "homepage": "https://github.com/circlecell/lint.me#readme",
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "bootstrap": "^4.0.0-alpha.5",
+    "codemirror": "^5.20.2",
     "matreshka": "^2.0.1",
     "matreshka-binder-codemirror": "0.0.4",
-    "codemirror": "^5.20.2",
     "matreshka-parse-form": "0.0.2"
   }
 }

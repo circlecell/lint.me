@@ -3,17 +3,17 @@ import chain from 'matreshka/chain';
 import codeMirror from 'matreshka-binder-codemirror';
 import parseForm from 'matreshka-parse-form';
 import linterPromise from './linter';
+import Warnings from './warnings';
 
 class Application {
     constructor() {
         chain(this)
+            .instantiate('warnings', Warnings)
             .bindNode({
                 sandbox: 'body',
                 code: {
                     node: ':sandbox .code',
-                    binder: codeMirror({
-                        lineNumbers: true
-                    })
+                    binder: codeMirror({ lineNumbers: true })
                 }
             })
             .on({
@@ -38,7 +38,7 @@ class Application {
     async lint() {
         const { code, settings } = this;
         try {
-            const resp = await (
+            const { warnings } = await (
                 await fetch('/lint/html', {
                     method: 'post',
                     body: JSON.stringify({ code, settings }),
@@ -48,7 +48,7 @@ class Application {
                 })
             ).json();
 
-            console.log(resp);
+            this.warnings = warnings;
         } catch (e) {
             console.error(e);
         }
