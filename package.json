@@ -60,7 +60,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "lerna": "2.0.0-beta.30",
     "nodemon": "^1.11.0",
-    "npmlog": "^4.0.0",
     "opn-cli": "^3.1.0",
     "postcss-calc": "^5.3.1",
     "postcss-cssnext": "^2.8.0",
