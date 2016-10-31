@@ -25,12 +25,12 @@
       repo : "git@github.com:circlecell/lint.me.git",
       path : "/var/web/lint.me/production",
       ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-      "post-deploy" : "npm run post-deploy-remote && npm start -- --env production"
+      "post-deploy" : "npm run post-deploy-remote && npm start -- --env master"
     },
     stage : {
       user : "deployer",
       host : "192.241.157.86",
-      ref  : "origin/develop",
+      ref  : "origin/stage",
       repo : "git@github.com:circlecell/lint.me.git",
       path : "/var/web/lint.me/stage",
       ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
