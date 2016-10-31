@@ -15,7 +15,7 @@
     "start": "pm2 startOrRestart ecosystem.json --watch --env production",
     "post-deploy-remote": "npm run install-all && npm run bundle",
     "deploy": "git status && pm2 deploy ecosystem.json $TRAVIS_BRANCH",
-    "semantic-release": "if-env TRAVIS_PULL_REQUEST=false && semantic-release pre && git stash && npm run deploy && git stash apply --index && semantic-release post"
+    "semantic-release": "if ([ \"$TRAVIS_BRANCH\" == \"master\" ] || [ \"$TRAVIS_BRANCH\" == \"stage\" ]); then semantic-release pre && git stash && npm run deploy && git stash apply --index && semantic-release post; fi"
   },
   "config": {
     "validate-commit-msg": {
