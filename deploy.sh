@@ -6,6 +6,10 @@ then
             git stash &&
             pm2 deploy ecosystem.json $TRAVIS_BRANCH &&
             git stash apply --index &&
-            semantic-release post
+            semantic-release post || 'Deployment is not run';
+        else
+            echo 'Deployment is not run because the branch is wrong';
     fi;
+else
+    echo 'Deployment is not run because this is pull request';
 fi;
