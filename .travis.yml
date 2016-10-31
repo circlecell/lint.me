@@ -15,8 +15,7 @@ after_success:
 - eval "$(ssh-agent -s)"
 - chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
 - ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
-- test $TRAVIS_BRANCH = "master" npm run semantic-release
-- if ([ "$TRAVIS_PULL_REQUEST" == "false" ]); then eval 'npm run semantic-release'; fi;
+- npm run semantic-release
 branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"

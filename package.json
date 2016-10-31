@@ -14,8 +14,7 @@
     "upgrade": "yarn upgrade && lerna exec -- yarn upgrade",
     "start": "pm2 startOrRestart ecosystem.json --watch --env production",
     "post-deploy-remote": "npm run install-all && npm run bundle",
-    "deploy": "git status && pm2 deploy ecosystem.json $TRAVIS_BRANCH",
-    "semantic-release": "if ([ \"$TRAVIS_BRANCH\" == \"master\" ] || [ \"$TRAVIS_BRANCH\" == \"stage\" ]); then semantic-release pre && git stash && npm run deploy && git stash apply --index && semantic-release post; fi"
+    "semantic-release": "bash ./deploy.sh"
   },
   "config": {
     "validate-commit-msg": {
