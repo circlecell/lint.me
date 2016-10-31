@@ -2951,6 +2951,12 @@ known-css-properties@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.0.5.tgz#33de5b8279010a72db917d33119e4c27c078490a"
 
+last-release-git:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/last-release-git/-/last-release-git-0.0.1.tgz#92819bdaa3f19e32cdd14cf91064e2b4966c7bb5"
+  dependencies:
+    semver "^5.3.0"
+
 latest-version@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/latest-version/-/latest-version-1.0.1.tgz#72cfc46e3e8d1be651e1ebb54ea9f6ea96f374bb"
@@ -5104,6 +5110,10 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
+semver-regex@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/semver-regex/-/semver-regex-1.0.0.tgz#92a4969065f9c70c694753d55248fc68f8f652c9"
+
 semver-utils@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/semver-utils/-/semver-utils-1.1.1.tgz#27d92fec34d27cfa42707d3b40d025ae9855f2df"
@@ -5734,6 +5744,14 @@ util@~0.10.3, util@0.10.3:
 uuid@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+
+validate-commit-msg:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/validate-commit-msg/-/validate-commit-msg-2.8.2.tgz#3020c4227523e6964214537427c1fb058007eaab"
+  dependencies:
+    conventional-commit-types "^2.0.0"
+    findup "0.1.5"
+    semver-regex "1.0.0"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
