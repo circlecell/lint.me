@@ -16,7 +16,7 @@
     "post-deploy-remote": "npm run install-all && npm run bundle",
     "travis-deploy": "if-env TRAVIS_BRANCH=master TRAVIS_PULL_REQUEST=false && npm run semantic-release || echo 'Deploy is not run'",
     "deploy": "git status && pm2 deploy ecosystem.json $TRAVIS_BRANCH",
-    "semantic-release": "semantic-release pre && npm run deploy && semantic-release post"
+    "semantic-release": "semantic-release pre && git stash && npm run deploy && git stash apply --index && semantic-release post"
   },
   "config": {
     "validate-commit-msg": {
