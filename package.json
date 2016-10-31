@@ -14,6 +14,7 @@
     "upgrade": "yarn upgrade && lerna exec -- yarn upgrade",
     "start": "pm2 startOrRestart ecosystem.json --watch --env production",
     "post-deploy-remote": "npm run install-all && npm run bundle",
+    "travis-deploy": "if-env TRAVIS_BRANCH=master TRAVIS_PULL_REQUEST=false && npm run semantic-release || echo 'Deploy is not run'",
     "deploy": "pm2 deploy ecosystem.json $TRAVIS_BRANCH",
     "semantic-release": "semantic-release pre && npm run deploy && semantic-release post"
   },
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "commitizen": "^2.8.6",
-    "ghooks": "^1.3.2"
+    "ghooks": "^1.3.2",
+    "if-env": "^1.0.0"
   }
 }

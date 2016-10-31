@@ -18,11 +18,9 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: npm run deploy
+  script: npm run travis-deploy
   on:
     branch: master
-after_success:
-  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
