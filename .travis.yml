@@ -1,5 +1,7 @@
 sudo: true
 language: node_js
+node_js:
+  - '7'
 addons:
   ssh_known_hosts: 192.241.157.86
 install:
