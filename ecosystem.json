@@ -18,7 +18,7 @@
         }
     }],
   deploy : {
-    production : {
+    master : {
       user : "deployer",
       host : "192.241.157.86",
       ref  : "origin/master",
@@ -30,7 +30,7 @@
     stage : {
       user : "deployer",
       host : "192.241.157.86",
-      ref  : "origin/stage",
+      ref  : "origin/develop",
       repo : "git@github.com:circlecell/lint.me.git",
       path : "/var/web/lint.me/stage",
       ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
