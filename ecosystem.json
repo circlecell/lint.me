@@ -14,7 +14,7 @@
         PORT: 5003
         },
         env_stage : {
-          PORT: 6003
+          PORT: 5503
         }
     }],
   deploy : {
