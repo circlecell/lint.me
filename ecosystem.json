@@ -25,7 +25,7 @@
             repo: "git@github.com:circlecell/lint.me.git",
             path: "/var/web/lint.me/production",
             ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-            "post-deploy": "npm run post-deploy-remote && npm start -- --env production"
+            "post-deploy": "DEPLOY_ENV=production npm run post-deploy-remote && npm start -- --env production"
         },
         stage: {
             user: "deployer",
@@ -34,7 +34,7 @@
             repo: "git@github.com:circlecell/lint.me.git",
             path: "/var/web/lint.me/stage",
             ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-            "post-deploy": "npm run post-deploy-remote && npm start -- --env stage"
+            "post-deploy": "DEPLOY_ENV=production npm run post-deploy-remote && npm start -- --env stage"
         }
     }
 }
