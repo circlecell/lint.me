@@ -11,7 +11,7 @@ install:
 - sudo apt-get install yarn
 - npm run install-all
 after_success:
-- npm install -g pm2
+- yarn global add pm2
 - eval "$(ssh-agent -s)"
 - chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
 - ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
