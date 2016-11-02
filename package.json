@@ -17,7 +17,7 @@
     "deploy-production": "pm2 deploy ecosystem.json production",
     "deploy-stage": "npm run semantic-release",
     "post-deploy-remote": "npm run install-all && npm run bundle",
-    "semantic-release": "semantic-release pre && git stash && pm2 deploy ecosystem.json stage && git stash apply --index && semantic-release post || echo 'Deployment is not run';"
+    "semantic-release": "semantic-release pre && git stash && git status && pm2 deploy ecosystem.json stage && git stash apply --index && semantic-release post || echo 'Deployment is not run';"
   },
   "config": {
     "validate-commit-msg": {
