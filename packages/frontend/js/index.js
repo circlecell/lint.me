@@ -39,7 +39,7 @@ class Application {
         const { code, settings } = this;
         try {
             const { warnings } = await (
-                await fetch('/lint/html', {
+                await fetch('/api/lint/html', {
                     method: 'post',
                     body: JSON.stringify({ code, settings }),
                     headers: {

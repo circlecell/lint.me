@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.render('index.ejs', {});
 });
 
-app.use('/lint', lintRouter);
+app.use('/api/lint', lintRouter);
 
 if(NODE_ENV === 'production') {
     app.use(express.static(`${__dirname}/public`));
