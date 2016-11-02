@@ -36,7 +36,8 @@
     }
   },
   "release": {
-    "getLastRelease": "last-release-git"
+    "getLastRelease": "last-release-git",
+    "branch": "stage"
   },
   "repository": {
     "type": "git",
