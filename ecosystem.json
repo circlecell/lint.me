@@ -11,10 +11,12 @@
             NODE_ENV: "production"
         },
         env_production: {
-            PORT: 5003
+            PORT: 5003,
+            DEPLOY_ENV: 'production'
         },
         env_stage: {
-            PORT: 5503
+            PORT: 5503,
+            DEPLOY_ENV: 'stage'
         }
     }],
     deploy: {
@@ -25,7 +27,7 @@
             repo: "git@github.com:circlecell/lint.me.git",
             path: "/var/web/lint.me/production",
             ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-            "post-deploy": "DEPLOY_ENV=production npm run post-deploy-remote && npm start -- --env production"
+            "post-deploy": "npm run post-deploy-remote && npm start -- --env production"
         },
         stage: {
             user: "deployer",
@@ -34,7 +36,7 @@
             repo: "git@github.com:circlecell/lint.me.git",
             path: "/var/web/lint.me/stage",
             ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-            "post-deploy": "DEPLOY_ENV=stage npm run post-deploy-remote && npm start -- --env stage"
+            "post-deploy": "npm run post-deploy-remote && npm start -- --env stage"
         }
     }
 }
