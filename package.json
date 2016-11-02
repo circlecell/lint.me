@@ -14,7 +14,7 @@
     "upgrade": "yarn upgrade && lerna exec -- yarn upgrade",
     "start": "pm2 startOrRestart ecosystem.json --watch --env production",
     "deploy": "if-env TRAVIS_BRANCH=stage && npm run deploy-stage || if-env TRAVIS_BRANCH=master && npm run deploy-production || echo \"Cannot deploy branch $TRAVIS_BRANCH\"",
-    "deploy-master": "pm2 deploy ecosystem.json production",
+    "deploy-production": "pm2 deploy ecosystem.json production",
     "deploy-stage": "npm run semantic-release",
     "post-deploy-remote": "npm run install-all && npm run bundle",
     "semantic-release": "semantic-release pre && git stash && pm2 deploy ecosystem.json stage && git stash apply --index && semantic-release post || echo 'Deployment is not run';"
