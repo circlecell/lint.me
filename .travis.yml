@@ -11,8 +11,8 @@ install:
 - sudo apt-get install yarn
 - npm run install-all
 after_success:
-- git config --global user.email "andrey@gubanov.eu"
-- git config --global user.name "Andrey Gubanov"
+- git config user.email "andrey@gubanov.eu"
+- git config user.name "Andrey Gubanov"
 - yarn global add pm2
 - eval "$(ssh-agent -s)"
 - chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
