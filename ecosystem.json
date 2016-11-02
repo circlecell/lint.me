@@ -4,7 +4,7 @@
    * http://pm2.keymetrics.io/docs/usage/application-declaration/
    */
   apps : [{
-      name      : process.env.PM2_ENV === 'production' ? "lint.me" : "stage.lint.me",
+      name      : process.env.DEPLOY_ENV === 'production' ? "lint.me" : "stage.lint.me",
       script    : "packages/backend",
       node_args: '--harmony-async-await',
       env: {
