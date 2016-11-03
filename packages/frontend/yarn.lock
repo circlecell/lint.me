@@ -49,8 +49,8 @@ matreshka-parse-form@0.0.2:
     balajs "^0.1.9"
 
 matreshka@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/matreshka/-/matreshka-2.0.1.tgz#fb436b00efdac8511df4e5147c4a46813d1e811f"
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/matreshka/-/matreshka-2.0.2.tgz#1560e49739a85aaa89357ce2150c3c7e41a38b8a"
 
 regenerator-runtime@^0.9.5:
   version "0.9.5"
