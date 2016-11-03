@@ -1,5 +1,6 @@
 const path = require('path');
 const { isDevelopment } = require('./env');
+
 let filename;
 let chunkFilename;
 
@@ -16,5 +17,5 @@ module.exports = {
     chunkFilename,
     path: path.resolve(__dirname, '..', 'packages/backend/public'),
     library: 'app',
-    libraryTarget: 'var',
+    libraryTarget: 'var'
 };
