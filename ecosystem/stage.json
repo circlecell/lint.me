@@ -16,7 +16,7 @@
             repo: "git@github.com:circlecell/lint.me.git",
             path: "/var/web/lint.me/stage",
             ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-            "post-deploy": "npm run post-deploy-remote && pm2 startOrRestart ecosystem/stage.json --watch --env stage"
+            "post-deploy": "npm run post-deploy-remote && pm2 startOrRestart ecosystem/stage.json"
         }
     }
 }
