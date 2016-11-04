@@ -1,5 +1,4 @@
-export const linterName = process.env.NODE_ENV === 'production' ?
-    document.domain.split('.')[0] : 'css';
+export const linterName = document.domain.split('.')[0];
 
 export default new Promise((resolve, reject) => {
     switch (linterName) {

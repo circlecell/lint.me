@@ -9,7 +9,6 @@ class Application extends MatreshkaObject {
     constructor() {
         super()
             .instantiate('warnings', Warnings)
-
             .on({
                 'click::(.submit)': () => this.lint()
             });
@@ -23,7 +22,7 @@ class Application extends MatreshkaObject {
             settingsForm,
             settings
         } = await linterPromise;
-        console.log(contentType);
+
         this
             .set({
                 contentType,
@@ -31,7 +30,7 @@ class Application extends MatreshkaObject {
                 settings
             })
             .bindNode({
-                sandbox: 'body',
+                sandbox: 'main',
                 code: {
                     node: ':sandbox .code',
                     binder: codeMirror({
@@ -43,7 +42,7 @@ class Application extends MatreshkaObject {
 
 
 
-        document.body.appendChild(parseForm(settings, settingsForm));
+        this.nodes.sandbox.appendChild(parseForm(settings, settingsForm));
     }
 
     async lint() {
