@@ -1,21 +1,15 @@
 import 'babel-polyfill';
-import chain from 'matreshka/chain';
+import MatreshkaObject from 'matreshka/object';
 import codeMirror from 'matreshka-binder-codemirror';
 import parseForm from 'matreshka-parse-form';
-import linterPromise from './linter';
+import linterPromise, { linterName } from './linter';
 import Warnings from './warnings';
 
-class Application {
+class Application extends MatreshkaObject {
     constructor() {
-        chain(this)
+        super()
             .instantiate('warnings', Warnings)
-            .bindNode({
-                sandbox: 'body',
-                code: {
-                    node: ':sandbox .code',
-                    binder: codeMirror({ lineNumbers: true })
-                }
-            })
+
             .on({
                 'click::(.submit)': () => this.lint()
             });
@@ -25,14 +19,31 @@ class Application {
 
     async initialize() {
         const {
-            // contentType,
+            contentType,
             settingsForm,
             settings
         } = await linterPromise;
+        console.log(contentType);
+        this
+            .set({
+                contentType,
+                settingsForm,
+                settings
+            })
+            .bindNode({
+                sandbox: 'body',
+                code: {
+                    node: ':sandbox .code',
+                    binder: codeMirror({
+                        mode: contentType,
+                        lineNumbers: true
+                    })
+                }
+            });
 
-        this.settings = settings;
 
-        document.body.appendChild(parseForm(this.settings, settingsForm));
+
+        document.body.appendChild(parseForm(settings, settingsForm));
     }
 
     async lint() {
