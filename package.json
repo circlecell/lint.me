@@ -8,7 +8,7 @@
     "test": "npm run lint && npm run stylelint || echo 'test is exited with 1'",
     "clean": "rimraf packages/backend/public",
     "bundle": "npm run clean && NODE_ENV=production webpack",
-    "develop": "opn http://localhost:5003; PORT=5003 NODE_ENV=development nodemon --harmony-async-await server.js --watch packages/backend --watch webpack --watch server.js --watch package.json",
+    "develop": "opn http://localhost:5003/app.html; PORT=5003 NODE_ENV=development nodemon --harmony-async-await server.js --watch packages/backend --watch webpack --watch server.js --watch package.json",
     "lint": "eslint .",
     "stylelint": "stylelint packages/frontend/css/*.css",
     "install-all": "yarn install && lerna exec -- yarn install",
