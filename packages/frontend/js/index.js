@@ -50,7 +50,7 @@ class Application extends MatreshkaObject {
         const { code, settings } = this;
         try {
             const { warnings } = await (
-                await fetch('/api/lint/html', {
+                await fetch(`/api/lint/${linterName}`, {
                     method: 'post',
                     body: JSON.stringify({ code, settings }),
                     headers: {
