@@ -1,5 +1,4 @@
-export const linterName = process.env.NODE_ENV === 'production' ?
-    document.domain.replace(/(\w+)\.eslint\.io/, '$1') : 'html';
+export const linterName = document.domain.split('.')[0];
 
 export default new Promise((resolve, reject) => {
     switch (linterName) {

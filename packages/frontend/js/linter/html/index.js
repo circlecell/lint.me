@@ -1,3 +1,4 @@
+import 'codemirror/mode/htmlmixed/htmlmixed';
 import settingsForm from './settings-form.html';
 import settings from './settings';
 

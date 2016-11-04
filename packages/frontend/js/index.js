@@ -1,21 +1,14 @@
 import 'babel-polyfill';
-import chain from 'matreshka/chain';
+import MatreshkaObject from 'matreshka/object';
 import codeMirror from 'matreshka-binder-codemirror';
 import parseForm from 'matreshka-parse-form';
-import linterPromise from './linter';
+import linterPromise, { linterName } from './linter';
 import Warnings from './warnings';
 
-class Application {
+class Application extends MatreshkaObject {
     constructor() {
-        chain(this)
+        super()
             .instantiate('warnings', Warnings)
-            .bindNode({
-                sandbox: 'body',
-                code: {
-                    node: ':sandbox .code',
-                    binder: codeMirror({ lineNumbers: true })
-                }
-            })
             .on({
                 'click::(.submit)': () => this.lint()
             });
@@ -25,21 +18,37 @@ class Application {
 
     async initialize() {
         const {
-            // contentType,
+            contentType,
             settingsForm,
             settings
         } = await linterPromise;
 
-        this.settings = settings;
+        this
+            .set({
+                contentType,
+                settingsForm,
+                settings
+            })
+            .bindNode({
+                sandbox: 'main',
+                code: {
+                    node: ':sandbox .code',
+                    binder: codeMirror({
+                        mode: contentType,
+                        lineNumbers: true
+                    })
+                }
+            });
 
-        document.body.appendChild(parseForm(this.settings, settingsForm));
+
+        this.nodes.sandbox.appendChild(parseForm(settings, settingsForm));
     }
 
     async lint() {
         const { code, settings } = this;
         try {
             const { warnings } = await (
-                await fetch('/api/lint/html', {
+                await fetch(`/api/lint/${linterName}`, {
                     method: 'post',
                     body: JSON.stringify({ code, settings }),
                     headers: {

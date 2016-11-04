@@ -1,3 +1,4 @@
+import 'codemirror/mode/css/css';
 import settingsForm from './settings-form.html';
 import settings from './settings';
 

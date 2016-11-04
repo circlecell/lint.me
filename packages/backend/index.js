@@ -1,17 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const lintRouter = require('./lint');
+
 const { env } = process;
 
 const app = express();
 
-for(const varName of ['NODE_ENV', 'PORT']) {
-    if(!env[varName]) {
+for (const varName of ['NODE_ENV', 'PORT']) {
+    if (!env[varName]) {
         throw Error(`${varName} env variable is not given`);
     }
 }
 
-const { PORT, NODE_ENV } = env;
+const { PORT } = env;
 
 app.use(bodyParser.json());
 
