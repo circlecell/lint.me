@@ -2,18 +2,22 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+//const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const { isDevelopment, isProduction } = require('./env');
 
 const plugins = [
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new HtmlWebpackPlugin({
-        template: 'index.html'
+        template: 'app.html',
+        filename: 'app.html',
+        chunks: ['app']
     }),
-    new CopyWebpackPlugin([
-        { from: 'root.html' }
-    ])
+    new HtmlWebpackPlugin({
+        template: 'root.html',
+        filename: 'root.html',
+        chunks: ['root']
+    })
 ];
 
 if (isDevelopment) {
@@ -25,7 +29,7 @@ if (isDevelopment) {
 
 if (isProduction) {
     plugins.push(
-        new ExtractTextPlugin('css/style.css', {
+        new ExtractTextPlugin('css/[name].css', {
             allChunks: true
         }),
         new webpack.optimize.UglifyJsPlugin({
