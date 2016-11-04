@@ -41,7 +41,6 @@ class Application extends MatreshkaObject {
             });
 
 
-
         this.nodes.sandbox.appendChild(parseForm(settings, settingsForm));
     }
 
