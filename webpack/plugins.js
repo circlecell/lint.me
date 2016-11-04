@@ -3,6 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SplitByPathPlugin = require('webpack-split-by-path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const { isDevelopment, isProduction } = require('./env');
 
@@ -24,7 +25,10 @@ const plugins = [
     }], {
         // fix https://github.com/webpack/extract-text-webpack-plugin/issues/92
         ignore: [/\.css/]
-    })
+    }),
+    new CopyWebpackPlugin([
+        { from: 'root.html' }
+    ])
 ];
 
 if (isDevelopment) {
