@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import MatreshkaObject from 'matreshka/object';
+import html from 'matreshka/binders/html';
 import codeMirror from 'matreshka-binder-codemirror';
 import parseForm from 'matreshka-parse-form';
 import linterPromise, { linterName } from './linter';
@@ -27,7 +28,8 @@ class Application extends MatreshkaObject {
             .set({
                 contentType,
                 settingsForm,
-                settings
+                settings,
+                linterName
             })
             .bindNode({
                 sandbox: 'main',
@@ -37,6 +39,10 @@ class Application extends MatreshkaObject {
                         mode: contentType,
                         lineNumbers: true
                     })
+                },
+                linterName: {
+                    node: ':sandbox .linter-name',
+                    binder: html()
                 }
             });
 

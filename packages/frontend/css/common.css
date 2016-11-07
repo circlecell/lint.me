@@ -1,21 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-size: 12px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.5em;
-    background: #fafbfc;
-    color: #111;
-}
+@import "skeleton-css/css/normalize.css";
+@import "skeleton-css/css/skeleton.css";
 
 main {
-    display: block;
-    width: 100%;
-    max-width: 950px;
-    margin: 0 auto;
     padding: 1.5em 0;
 }

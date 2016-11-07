@@ -3,27 +3,30 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Lint.io</title>
+	<title>Lint.me</title>
 </head>
 
 <body>
-	<main>
-		<header>
-			<div class="headings">
-				<h1>
-					lint.me
-				</h1>
-				<h3>
-					
-				</h3>
+	<main class="container">
+		<header class="row">
+			<div class="headings three columns">
+				<h2>
+					<span class="linter-name"></span> linter
+				</h2>
+				<h5>
+					The part of <a href="//lint.me">lint.me</a>
+				</h5>
 			</div>
-			<aside>
-
+			<aside class="headings nine columns">
+				<img src="http://placekitten.com/728/90" width="100%">
 			</aside>
-
 		</header>
-		<textarea class="code"></textarea><br>
-		<button class="submit btn btn-primary">Submit</button>
+		<form class="lint-form">
+			<textarea class="code"></textarea>
+			<button type="submit" class="button-primary">Submit</button>
+			<button type="reset">Clear</button>
+		</form>
+
 		<div class="warnings"></div>
 	</main>
 </body>
