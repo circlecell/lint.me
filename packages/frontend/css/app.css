@@ -7,3 +7,20 @@
     border: 1px solid #e1e1e1;
     margin-bottom: 1em;
 }
+
+.results {
+    &-item {
+        background: #FBE3E4;
+        color: #D12F19;
+        border: 1px solid #FBC2C4;
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.settings {
+    margin-top: 1rem;
+    &:empty {
+        display: none;
+    }
+}

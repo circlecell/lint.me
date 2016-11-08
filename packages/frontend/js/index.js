@@ -4,14 +4,21 @@ import html from 'matreshka/binders/html';
 import codeMirror from 'matreshka-binder-codemirror';
 import parseForm from 'matreshka-parse-form';
 import linterPromise, { linterName } from './linter';
-import Warnings from './warnings';
+import Results from './results';
 
 class Application extends MatreshkaObject {
     constructor() {
         super()
-            .instantiate('warnings', Warnings)
+            .instantiate('results', Results)
             .on({
-                'click::(.submit)': () => this.lint()
+                'submit::form': (evt) => {
+                    evt.preventDefault();
+                    this.lint();
+                },
+                'reset::form': (evt) => {
+                    evt.preventDefault();
+                    this.code = '';
+                }
             });
 
         this.initialize();
@@ -20,19 +27,19 @@ class Application extends MatreshkaObject {
     async initialize() {
         const {
             contentType,
-            settingsForm,
+            settingsFields,
             settings
         } = await linterPromise;
 
         this
             .set({
                 contentType,
-                settingsForm,
                 settings,
                 linterName
             })
             .bindNode({
                 sandbox: 'main',
+                form: ':sandbox .lint-form',
                 code: {
                     node: ':sandbox .code',
                     binder: codeMirror({
@@ -47,7 +54,7 @@ class Application extends MatreshkaObject {
             });
 
 
-        this.nodes.sandbox.appendChild(parseForm(settings, settingsForm));
+        this.nodes.form.appendChild(parseForm(settings, settingsFields));
     }
 
     async lint() {
@@ -63,7 +70,7 @@ class Application extends MatreshkaObject {
                 })
             ).json();
 
-            this.warnings = warnings;
+            this.results = warnings;
         } catch (e) {
             console.error(e);
         }
