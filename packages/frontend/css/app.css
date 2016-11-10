@@ -9,12 +9,24 @@
 }
 
 .results {
-    &-item {
-        background: #FBE3E4;
-        color: #D12F19;
-        border: 1px solid #FBC2C4;
+    &-item, &-no-warnings {
+        white-space: pre;
+        font-family: monospace;
+        border: 1px solid;
         margin: 0.5rem 0;
         padding: 0.5rem 1rem;
+    }
+
+    &-item {
+        background-color: #FBE3E4;
+        color: #D12F19;
+        border-color: #FBC2C4;
+    }
+
+    &-no-warnings {
+        background-color: #e3fbe6;
+        color: #21b83c;
+        border-color: #c2fbca;
     }
 }
 

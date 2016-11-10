@@ -5,7 +5,9 @@ module.exports = async (req, res) => {
     const { settings, code } = req.body;
     try {
         const config = Object.assign({}, standard, {
-            rules: Object.assign({}, standard.rules, settings)
+            rules: Object.assign({}, standard.rules, settings, {
+                'no-missing-end-of-source-newline': 'never'
+            })
         });
 
         const { results } = await stylelint.lint({
