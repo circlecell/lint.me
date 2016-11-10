@@ -1,9 +1,8 @@
-const postcssNested = require('postcss-nested');
-const postcssCssnext = require('postcss-cssnext');
-const postcssCalc = require('postcss-calc');
-
-module.exports = () => [
-    postcssNested(),
-    postcssCssnext(),
-    postcssCalc()
+module.exports = webpack => [
+    require('postcss-import')({
+        addDependencyTo: webpack
+    }),
+    require('postcss-nesting')(),
+    require('postcss-cssnext')(),
+    require('postcss-calc')()
 ];

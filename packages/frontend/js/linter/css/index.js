@@ -1,11 +1,11 @@
 import 'codemirror/mode/css/css';
-import settingsForm from './settings-form.html';
+import settingsFields from './settings-fields.html';
 import settings from './settings';
 
 const contentType = 'text/css';
 
 export default {
     contentType,
-    settingsForm,
+    settingsFields,
     settings
 };

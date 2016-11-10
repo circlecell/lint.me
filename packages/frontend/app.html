@@ -3,28 +3,34 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Lint.io</title>
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<title>Lint.me</title>
 </head>
 
 <body>
-	<main>
+	<main class="container">
 		<header>
 			<div class="headings">
 				<h1>
-					lint.me
+					<span class="linter-name"></span> linter
 				</h1>
-				<h3>
-					
-				</h3>
+				<h5>
+					The part of <a href="//lint.me" target="_blank">lint.me</a>
+				</h5>
 			</div>
 			<aside>
-
+				<img src="http://placekitten.com/728/90" width="100%">
 			</aside>
-
 		</header>
-		<textarea class="code"></textarea><br>
-		<button class="submit btn btn-primary">Submit</button>
-		<div class="warnings"></div>
+		<form class="lint-form">
+			<textarea class="code"></textarea>
+			<button type="submit" class="button-primary">Submit</button>
+			<button type="reset">Clear</button>
+		</form>
+
+		<div class="results">
+			<div class="results-no-warnings">Valid code</div>
+		</div>
 	</main>
 </body>
 </html>

@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const lintRouter = require('./lint');
+const apiRouter = require('./api');
 
 const { env } = process;
 
@@ -16,7 +16,7 @@ const { PORT } = env;
 
 app.use(bodyParser.json());
 
-app.use('/api/lint', lintRouter);
+app.use('/api', apiRouter);
 
 app.listen(PORT);
 

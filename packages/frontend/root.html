@@ -3,31 +3,51 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 	<title>Lint.io</title>
 </head>
 
 <body>
-	<main>
-        <h1>lint.me</h1>
+	<main class="container">
+		<header>
+			<div class="headings">
+				<h1>
+					lint.me
+				</h1>
+				<h5>
+					The collection of linters
+				</h5>
+			</div>
+			<aside>
+				<img src="http://placekitten.com/728/90" width="100%">
+			</aside>
+		</header>
 
-        <div class="row">
-            <div class="col-md-6">
-				<h2>HTML linter</h2>
-                <a href="http://html.lint.me">html.lint.me</a>
+		<div class="linters">
+	        <div class="row">
+	            <div class="one-half column linters-item">
+					<h4>HTML</h4>
+					<div class="linters-item-desc">Powered by <a href="https://www.npmjs.com/package/html-validator" target="_blank">html-validator</a> and other open source projects</div>
+	                <a class="linters-item-link" href="http://html.lint.me" target="_blank">html.lint.me</a> <a class="linters-item-github"  href="https://github.com/circlecell/lint.me" target="_blank">On Github</a>
+				</div>
+	            <div class="one-half column linters-item">
+					<h4>CSS</h4>
+					<div class="linters-item-desc">Powered by <a href="http://stylelint.io/" target="_blank">stylelint</a> and other open source projects</div>
+	                <a class="linters-item-link" href="http://css.lint.me" target="_blank">css.lint.me</a> <a class="linters-item-github" href="https://github.com/circlecell/lint.me" target="_blank">On Github</a>
+				</div>
 			</div>
-            <div class="col-md-6">
-				<h2>CSS linter</h2>
-                <a href="http://css.lint.me">css.lint.me</a>
-			</div>
-		</div>
-        <div class="row">
-            <div class="col-md-6">
-				<h2>JavaScript linter</h2>
-                <a href="http://eslint.io">eslint.io</a>
-			</div>
-            <div class="col-md-6">
-				<h2>JSON linter</h2>
-                <a href="http://jsonlint.com">jsonlint.com</a>
+			<h2>Other linters</h2>
+	        <div class="row">
+	            <div class="one-half column linters-item">
+					<h4>JavaScript</h4>
+					<div class="linters-item-desc">Powered by <a href="http://eslint.org/" target="_blank">ESLint</a> and other open source projects</div>
+	                <a class="linters-item-link" href="http://eslint.io" target="_blank">eslint.io</a> <a class="linters-item-github" href="https://github.com/circlecell/eslint.io" target="_blank">On Github</a>
+				</div>
+	            <div class="one-half column linters-item">
+					<h4>JSON</h4>
+					<div class="linters-item-desc">Powered by <a href="https://github.com/zaach/jsonlint" target="_blank">JSON Lint</a> and other open source projects</div>
+	                <a class="linters-item-link" href="http://jsonlint.com" target="_blank">jsonlint.com</a> <a class="linters-item-github" href="https://github.com/circlecell/jsonlintdotcom" target="_blank">On Github</a>
+				</div>
 			</div>
 		</div>
 	</main>

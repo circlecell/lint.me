@@ -79,14 +79,14 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
 autoprefixer@^6.0.0:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.5.1.tgz#ae759a5221e709f3da17c2d656230e67c43cbb75"
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.5.3.tgz#2d853af66d04449fcf50db3066279ab54c3e4b01"
   dependencies:
     browserslist "~1.4.0"
-    caniuse-db "^1.0.30000554"
+    caniuse-db "^1.0.30000578"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
-    postcss "^5.2.4"
+    postcss "^5.2.5"
     postcss-value-parser "^3.2.3"
 
 aws-sign2@~0.6.0:
@@ -160,9 +160,9 @@ camelcase@^2.0.0, camelcase@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
 
-caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000539, caniuse-db@^1.0.30000554:
-  version "1.0.30000574"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000574.tgz#4b10fb5435c50262effd10653405befd0d0bfc2c"
+caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000539, caniuse-db@^1.0.30000578:
+  version "1.0.30000578"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000578.tgz#fc4106bda3ca19df4bd9f35e491063f3d498ff31"
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -462,8 +462,8 @@ forever-agent@~0.6.1:
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
 
 form-data@~2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.1.1.tgz#4adf0342e1a79afa1e84c8c320a9ffc82392a1f3"
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.1.2.tgz#89c3534008b97eada4cbb157d58f6f5df025eae4"
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.5"
@@ -521,8 +521,8 @@ glob@^7.0.3:
     path-is-absolute "^1.0.0"
 
 globby@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/globby/-/globby-6.0.0.tgz#8f5710eda32296ac53f011a97dccc70e936685dc"
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-6.1.0.tgz#f5a6d70e8395e21c858fb0489d64df02424d506c"
   dependencies:
     array-union "^1.0.1"
     glob "^7.0.3"
@@ -583,10 +583,10 @@ html-tags@^1.1.1:
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-1.1.1.tgz#869f43859f12d9bdc3892419e494a628aa1b204e"
 
 html-validator@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/html-validator/-/html-validator-2.0.3.tgz#420ee019c92dffa5558391446aaf6d1214cf210e"
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/html-validator/-/html-validator-2.0.4.tgz#cb83bd47dd8c9a3985e5309884fe0f6ccc41b419"
   dependencies:
-    request "2.76.0"
+    request "2.78.0"
     valid-url "1.0.9"
 
 http-errors@~1.5.0:
@@ -1063,7 +1063,7 @@ postcss-value-parser@^3.1.1, postcss-value-parser@^3.2.3:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.0.tgz#87f38f9f18f774a4ab4c8a232f5c5ce8872a9d15"
 
-postcss@^5.0.0, postcss@^5.0.18, postcss@^5.0.20, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.8, postcss@^5.2.4:
+postcss@^5.0.0, postcss@^5.0.18, postcss@^5.0.20, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.8, postcss@^5.2.4, postcss@^5.2.5:
   version "5.2.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.5.tgz#ec428c27dffc7fac65961340a9b022fa4af5f056"
   dependencies:
@@ -1155,9 +1155,9 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@2.76.0:
-  version "2.76.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.76.0.tgz#be44505afef70360a0436955106be3945d95560e"
+request@2.78.0:
+  version "2.78.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.78.0.tgz#e1c8dec346e1c81923b24acdb337f11decabe9cc"
   dependencies:
     aws-sign2 "~0.6.0"
     aws4 "^1.2.1"

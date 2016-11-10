@@ -1,16 +1,66 @@
 import 'babel-polyfill';
 import MatreshkaObject from 'matreshka/object';
+import html from 'matreshka/binders/html';
+import prop from 'matreshka/binders/prop';
 import codeMirror from 'matreshka-binder-codemirror';
 import parseForm from 'matreshka-parse-form';
 import linterPromise, { linterName } from './linter';
-import Warnings from './warnings';
+import Results from './results';
+import { isUri } from 'valid-url';
 
 class Application extends MatreshkaObject {
     constructor() {
         super()
-            .instantiate('warnings', Warnings)
+            .instantiate('results', Results)
             .on({
-                'click::(.submit)': () => this.lint()
+                'submit::form': async (evt) => {
+                    evt.preventDefault();
+
+                    const url = this.code.trim();
+
+                    if (isUri(url)) {
+                        let resp;
+                        try {
+                            resp = await (
+                                await fetch('/api/proxy', {
+                                    method: 'post',
+                                    headers: {
+                                        'Content-type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ url: this.code })
+                                })
+                            ).json();
+                        } catch (e) {
+                            this.results = [{ text: e }];
+
+                            return;
+                        }
+
+                        const { body, error } = resp;
+
+                        if(error) {
+                            this.results = [{ text: error }];
+
+                            return;
+                        }
+
+                        this.code = body;
+
+                        this.lint();
+                    } else {
+                        this.lint();
+                    }
+                },
+                'reset::form': (evt) => {
+                    evt.preventDefault();
+                    this.code = '';
+                },
+                'change:code': evt => {
+                    this.results.noWarnings = false;
+                },
+                'settings@change': evt => {
+                    localStorage.settings = JSON.stringify(this.settings);
+                }
             });
 
         this.initialize();
@@ -19,29 +69,39 @@ class Application extends MatreshkaObject {
     async initialize() {
         const {
             contentType,
-            settingsForm,
+            settingsFields,
             settings
         } = await linterPromise;
+
+        Object.assign(settings, JSON.parse(localStorage.settings || '{}'));
 
         this
             .set({
                 contentType,
-                settingsForm,
-                settings
+                settings,
+                linterName
             })
             .bindNode({
                 sandbox: 'main',
-                code: {
+                form: ':sandbox .lint-form',
+                code: [{
                     node: ':sandbox .code',
                     binder: codeMirror({
                         mode: contentType,
                         lineNumbers: true
                     })
+                }, {
+                    node: ':sandbox button[type="submit"], :sandbox button[type="reset"]',
+                    binder: prop('disabled', value => !value)
+                }],
+                linterName: {
+                    node: ':sandbox .linter-name',
+                    binder: html()
                 }
             });
 
 
-        this.nodes.sandbox.appendChild(parseForm(settings, settingsForm));
+        this.nodes.form.appendChild(parseForm(settings, settingsFields));
     }
 
     async lint() {
@@ -57,7 +117,8 @@ class Application extends MatreshkaObject {
                 })
             ).json();
 
-            this.warnings = warnings;
+            this.results = warnings;
+            this.results.noWarnings = !warnings.length;
         } catch (e) {
             console.error(e);
         }
