@@ -1,1 +1,24 @@
 @import "common.css";
+
+.linters {
+    &-item {
+        margin-bottom: 2rem;
+
+        & h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        &-desc {
+            margin-bottom: 0.5rem;
+        }
+
+        &-link {
+
+        }
+
+        &-github {
+            float: right;
+            color: #999;
+        }
+    }
+}

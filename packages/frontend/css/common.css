@@ -4,3 +4,10 @@
 main {
     padding: 1.5em 0;
 }
+
+.headings {
+    color: green;
+    h5 {
+        font-size: 1rem;
+    }
+}
