@@ -1,5 +1,5 @@
 import MatreshkaArray from 'matreshka/array';
-import display from 'matreshka/binders/display';
+import prop from 'matreshka/binders/prop';
 
 export default class Results extends MatreshkaArray {
     itemRenderer = '<pre class="results-item">{{ text }}</pre>';
@@ -12,7 +12,7 @@ export default class Results extends MatreshkaArray {
                 sandbox: '.results',
                 noWarnings: {
                     node: ':sandbox .results-no-warnings',
-                    binder: display(true)
+                    binder: prop('hidden', value => (value ? false : true))
                 }
             });
     }
