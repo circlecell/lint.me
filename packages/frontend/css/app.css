@@ -1,6 +1,12 @@
 @import "codemirror/lib/codemirror.css";
 @import "common.css";
 
+header {
+    & .headings {
+        margin-top: 1rem;
+    }
+}
+
 .code, .CodeMirror {
     width: 100%;
     height: 400px;
