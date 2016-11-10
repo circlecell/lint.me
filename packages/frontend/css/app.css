@@ -8,6 +8,8 @@
     margin-bottom: 1em;
 }
 
+.CodeMirror pre.CodeMirror-placeholder { color: #999; }
+
 .results {
     &-item, &-no-warnings {
         white-space: pre;

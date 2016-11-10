@@ -7,6 +7,7 @@ import parseForm from 'matreshka-parse-form';
 import linterPromise, { linterName } from './linter';
 import Results from './results';
 import { isUri } from 'valid-url';
+import 'codemirror/addon/display/placeholder';
 
 class Application extends MatreshkaObject {
     constructor() {
