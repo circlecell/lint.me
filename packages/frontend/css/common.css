@@ -5,9 +5,29 @@ main {
     padding: 1.5em 0;
 }
 
-.headings {
-    color: green;
-    h5 {
-        font-size: 1rem;
+header {
+    & .headings {
+        margin-top: 1rem;
+    }
+
+    & h1 {
+        margin-bottom: 0;
+        font-size: 4rem;
+    }
+
+    & h5 {
+        font-size: 2rem;
+    }
+
+    & aside {
+        width: 728px;
+        height: 90px;
+        float: right;
+    }
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
     }
 }
