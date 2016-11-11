@@ -70,6 +70,7 @@ class Application extends MatreshkaObject {
     async initialize() {
         const {
             contentType,
+            displayName,
             settingsFields,
             settings
         } = await linterPromise;
@@ -79,6 +80,7 @@ class Application extends MatreshkaObject {
         this
             .set({
                 contentType,
+                displayName,
                 settings,
                 linterName
             })
@@ -95,8 +97,8 @@ class Application extends MatreshkaObject {
                     node: ':sandbox button[type="submit"], :sandbox button[type="reset"]',
                     binder: prop('disabled', value => !value)
                 }],
-                linterName: {
-                    node: ':sandbox .linter-name',
+                displayName: {
+                    node: ':sandbox h1',
                     binder: html()
                 }
             });

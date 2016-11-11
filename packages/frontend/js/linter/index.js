@@ -11,6 +11,10 @@ export default new Promise((resolve, reject) => {
         require.ensure([], require => resolve(require('./html').default), 'html-linter');
         break;
     }
+    case 'php': {
+        require.ensure([], require => resolve(require('./php').default), 'php-linter');
+        break;
+    }
     default: {
         reject(new Error(`Linter with name "${linterName}" isn't found`));
     }

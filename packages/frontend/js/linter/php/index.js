@@ -1,9 +1,9 @@
-import 'codemirror/mode/css/css';
+import 'codemirror/mode/php/php';
 import settingsFields from './settings-fields.html';
 import settings from './settings';
 
-const contentType = 'text/css';
-const displayName = 'CSS Linter';
+const contentType = 'application/x-httpd-php';
+const displayName = 'PHP validator';
 
 export default {
     contentType,
