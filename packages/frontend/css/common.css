@@ -8,8 +8,6 @@ main.container {
 header {
     margin-bottom: 1rem;
 
-
-
     & .headings {
         width: 220px;
         float: left;
@@ -37,7 +35,8 @@ header {
     }
 
     @media (max-width: 1000px) {
-        & aside, & .headings {
+        & aside,
+        & .headings {
             float: none;
             text-align: center;
             margin: 0 auto;
