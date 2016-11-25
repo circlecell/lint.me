@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
             res.json({ warnings: [] });
         } else {
             const results = resultsStr.split('\n').reduce((previousValue, currentValue, index, arr) => {
-                if(index % 2 === 0) {
+                if (index % 2 === 0) {
                     previousValue.push(arr[index]);
                 } else {
                     previousValue[previousValue.length - 1] += `\n${arr[index]}`;

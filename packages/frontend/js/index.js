@@ -4,10 +4,10 @@ import html from 'matreshka/binders/html';
 import prop from 'matreshka/binders/prop';
 import codeMirror from 'matreshka-binder-codemirror';
 import parseForm from 'matreshka-parse-form';
-import linterPromise, { linterName } from './linter';
-import Results from './results';
 import { isUri } from 'valid-url';
 import 'codemirror/addon/display/placeholder';
+import linterPromise, { linterName } from './linter';
+import Results from './results';
 
 class Application extends MatreshkaObject {
     constructor() {
@@ -39,7 +39,7 @@ class Application extends MatreshkaObject {
 
                         const { body, error } = resp;
 
-                        if(error) {
+                        if (error) {
                             this.results = [{ text: error }];
 
                             return;
@@ -56,10 +56,10 @@ class Application extends MatreshkaObject {
                     evt.preventDefault();
                     this.code = '';
                 },
-                'change:code': evt => {
+                'change:code': () => {
                     this.results.noWarnings = false;
                 },
-                'settings@change': evt => {
+                'settings@change': () => {
                     localStorage.settings = JSON.stringify(this.settings);
                 }
             });

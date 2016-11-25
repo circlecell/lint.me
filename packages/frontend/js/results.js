@@ -12,7 +12,7 @@ export default class Results extends MatreshkaArray {
                 sandbox: '.results',
                 noWarnings: {
                     node: ':sandbox .results-no-warnings',
-                    binder: prop('hidden', value => (value ? false : true))
+                    binder: prop('hidden', value => !value)
                 }
             });
     }

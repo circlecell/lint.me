@@ -21,8 +21,10 @@
     "child-process-promise": "^2.2.0",
     "express": "^4.14.0",
     "fs-promise": "^1.0.0",
-    "html-validator": "^2.0.3",
-    "stylelint": "^7.5.0",
-    "stylelint-config-standard": "^14.0.0"
+    "html-validator": "^2.0.4",
+    "request": "^2.79.0",
+    "stylelint": "^7.6.0",
+    "stylelint-config-standard": "^15.0.0",
+    "valid-url": "^1.0.9"
   }
 }

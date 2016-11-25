@@ -6,7 +6,7 @@ const router = Router();
 
 router
     .use('/lint', lint)
-    .use('/proxy', proxy)
+    .use('/proxy', proxy);
 
 
 module.exports = router;

@@ -1,5 +1,4 @@
 const request = require('request');
-const { Router } = require('express');
 const { isUri } = require('valid-url');
 
 module.exports = (req, res) => {
